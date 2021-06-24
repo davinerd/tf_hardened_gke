@@ -9,6 +9,7 @@ A customized version based on [https://github.com/terraform-google-modules/terra
 
 ## Inputs
 It takes all the inputs from the [GKE Beta Private Cluster module](https://github.com/terraform-google-modules/terraform-google-kubernetes-engine/tree/master/modules/beta-private-cluster) mentioned above. Please refer to that page for detailed information.
+This module uses version `15.0.0` of the aforementioned module.
 
 ## Outputs
 ```
