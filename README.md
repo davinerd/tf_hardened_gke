@@ -21,7 +21,7 @@ The following example will create a GKE zonal cluster with a initial nodes count
 
 ```
 module "priv_gke" {
-    source = "git::ssh://git@gitlab.silverfin.com/sec/infrastructure/tf_modules/private_gke.git?ref=0.1"
+    source = "github.com/davinerd/tf_hardened_gke"
 
     project_id = "test-new-project-301409"
 
