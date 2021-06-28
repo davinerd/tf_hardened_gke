@@ -219,6 +219,17 @@ variable "maintenance_exclusions" {
   default     = []
 }
 
+variable "node_pools" {
+  default = []
+}
+
+variable "node_pools_labels" {
+  default = {}
+}
+
+variable "node_pools_taints" {
+  default = {}
+}
 
 variable "http_load_balancing" {
   type        = bool
