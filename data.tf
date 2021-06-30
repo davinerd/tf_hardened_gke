@@ -1,3 +1,3 @@
 data "http" "my_public_ip" {
-   url = "http://ifconfig.co/"
+   url = var.http_public_ip_url
 }

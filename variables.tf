@@ -399,3 +399,7 @@ variable "enable_pod_security_policy" {
   description = "Enable the PodSecurityPolicy controller for this cluster. If enabled, pods must be valid under a PodSecurityPolicy to be created."
   default = false
 }
+
+variable "http_public_ip_url" {
+  default = "https://ifconfig.co/"
+}
