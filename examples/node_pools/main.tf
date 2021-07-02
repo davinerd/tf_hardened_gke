@@ -1,12 +1,3 @@
-provider "google" {
-  alias = "tokengen"
-}
-
-provider "google" {
-  access_token = data.google_service_account_access_token.sa.access_token
-  project      = "your_project"
-}
-
 module "private_gke" {
   source = "github.com/davinerd/tf_hardened_gke"
   version = "0.2"
