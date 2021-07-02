@@ -61,12 +61,6 @@ variable "ingress_nginx_enabled" {
   default = false
 }
 
-variable "ingress_nginx_firewall_rule_name" {
-  type = string
-  description = "Name of the firewall rule for the ingress nginx (default: ingress-nginx)"
-  default = "ingress-nginx"
-}
-
 variable "region" {
 
 }

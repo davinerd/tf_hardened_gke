@@ -80,7 +80,7 @@ resource "google_compute_router_nat" "nat" {
 resource "google_compute_firewall" "ingress-nginx" {
   count = var.ingress_nginx_enabled && var.private ? 1 : 0
   project = var.project_id
-  name    = var.ingress_nginx_firewall_rule_name
+  name    = format("%s-ingress-nginx", var.name)
   network = google_compute_network.network.self_link
 
   allow {
@@ -90,7 +90,5 @@ resource "google_compute_firewall" "ingress-nginx" {
 
   source_ranges = [var.master_ipv4_block]
 
-  # TODO implement target_tags as node pool tags. Unfortunately, as this time,
-  # the underline GKE module does not output such value.
-  # Possible solution: fork and add it
+  target_tags   = ["gke-${var.name}"]
 }
