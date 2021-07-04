@@ -1,10 +1,19 @@
 locals {
-  master_authorized_networks = [
+  local_authorized_network = [
     {
       cidr_block   = "${chomp(data.http.my_public_ip.body)}/32",
       display_name = "My public IP"
     }
   ]
+
+  # THE FOLLOWING CODE IS REPORTED HERE JUST AS REFERENCE
+  # Check if we passed down a map or just a list of IPs
+  # master_networks_key_exists = contains(keys(var.master_authorized_networks), "cidr_block") <- doesn't work since var.master_authorized_networks must be known before apply
+  # global_master_networks = local.master_networks_key_exists ? var.master_authorized_networks : [for ip in var.master_authorized_networks: tomap({cidr_block = ip, display_name = "Custom IP"})]
+  # Build the actual authorized networks list
+  # master_authorized_networks = var.master_authorized_networks == [] ? local.local_authorized_network : local.global_master_networks
+
+  master_authorized_networks = length(var.master_authorized_networks) == 0 ? local.local_authorized_network : var.master_authorized_networks
 
   default_node_pools_labels = {
     all = {
@@ -13,7 +22,6 @@ locals {
   }
 
   node_pools_labels = var.node_pools_labels != {} ? var.node_pools_labels : local.default_node_pools_labels
-
 
   default_node_pools_tains = {
     all = [{
