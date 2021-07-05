@@ -47,6 +47,8 @@ locals {
       auto_upgrade       = var.node_auto_upgrade
       preemptible        = var.node_preemptible
       initial_node_count = var.initial_node_count
+      enable_secure_boot = var.enable_secure_boot
+      enable_integrity_monitoring = var.enable_integrity_monitoring
     }
 
   node_pools = [for k in var.node_pools: merge(local.default_node_pools, k)]
