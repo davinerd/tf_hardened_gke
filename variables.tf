@@ -395,7 +395,7 @@ variable "enable_pod_security_policy" {
 }
 
 variable "http_public_ip_url" {
-  default = "https://ifconfig.co/"
+  default = "https://ifconfig.me/"
 }
 
 variable "enable_integrity_monitoring" {
