@@ -10,6 +10,9 @@ output "get_credentials" {
   value       = format("gcloud container clusters get-credentials --project %s --region %s %s", var.project_id, var.region, var.name)
 }
 
+output "master_ipv4_block" {
+  value = var.master_ipv4_block
+}
 
 output "network" {
   description = "Network details"
