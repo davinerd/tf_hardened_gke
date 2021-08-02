@@ -54,4 +54,6 @@ locals {
   node_pools = [for k in var.node_pools: merge(local.default_node_pools, k)]
 
   resource_labels = merge(var.cluster_resource_labels, { name = var.name })
+
+  outbound_access = !var.private ? false : var.outbound_access
 }

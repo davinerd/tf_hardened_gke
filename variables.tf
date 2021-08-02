@@ -3,6 +3,7 @@ variable "master_ipv4_block" {
 }
 
 variable "private" {
+  type = bool
   default = true
 }
 
